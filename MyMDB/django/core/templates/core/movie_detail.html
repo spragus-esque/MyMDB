@@ -1,0 +1,21 @@
+{% extends 'base.html' %} <!-- allows for override of base.html inside established blocks ie: line 3 -->
+
+{% block title %}
+  {{ object.title }} - {{ block.super}} <!-- block.super returns contents of title template block in base.html -->
+{% endblock %}
+
+{% block main %}
+<h1>{{ object }}</h1>
+<p class ="lead">
+{{ object.plot }}
+</p>
+{% endblock %}
+
+{% block sidebar %}
+<div>
+This movie is rated:
+  <span class="badge badge-primary">
+  {{ object.get_rating_display }} <!-- just refernce py method by name in html -->
+  </span>
+</div>
+{% endblock %}
